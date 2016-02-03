@@ -1,0 +1,414 @@
+Speciální elementy a jejich atributy:
+
+1. Pomocné HTML elementy
+
+1.1 Skupinové elementy
+Slouží k ohranièení obsahu.
+
+1.1.1 group
+Obecný skupinový element, jehož obsahem mùže být cokoliv, sám však mùže být obsahem opìt jen elementu group.
+
+Atributy:
+eid ............. slouží k identifikaci, musí být v rámci templatu unikátní
+                  (tento atribut mají všechny tagy, vèetnì základních HTML tagù)
+active .......... slouží k pøípadné deaktivaci (deaktivovaný element negeneruje html kód)
+                  pøípusté hodnoty: "0" nebo "" znamená neaktivní, cokoliv jiného aktivní
+                  není-li uvedeno, element se bere jako aktivní
+                  (tento atribut mají všechny tagy, vèetnì základních HTML tagù)
+type ............ slouží k oznaèení
+specification ... slouží k dalšímu upøesnìní oznaèení
+lang ............ html atribut
+dir ............. html atribut
+
+1.1.2 flow
+Totéž co tag group s tím, že tento tag mùže být obsahem HTML elementù, jež mají povolený obsah nastaven na entitu %Flow;.
+Entitu %Flow; mají nastavenou jako svùj povolený obsah elementy div, li, dd, ins a del.
+Obsah tohoto elementu tvoøí elementy patøící do tøídy %Flow;. Více viz DTD specifikace xhtml.
+
+1.1.3 block
+Totéž co tag group s tím, že tento tag mùže být obsahem HTML elementù, jež mají povolený obsah nastaven na entitu %Block;.
+Elementy, které mají nastaven povolený obsah na %Block;, jsou noscript, body a blockquote.
+V rámci této knihovny platí totéž i pro element form.
+Obsah tohoto elementu tvoøí elementy patøící do tøídy %Block;.
+
+1.1.4 inline
+Totéž co tag group s tím, že tento tag mùže být obsahem HTML elementù, jež mají povolený obsah nastaven na entitu %Inline;.
+Na %Inline; mají svùj obsah nastaven tyto elementy:
+    * odstavec (p),
+    * nadpisy (h1, h2, h3, h4, h5 a h6),
+    * kontejner span,
+    * øádkové sémantické elementy s výjimkou "a" (em, strong, dfn, code, q, samp, kbd, var, cite, abbr, acronym, sub a sup),
+    * a elementy dt, address, label, legend a caption.
+Element "a" má nastaven obsah v podstatì rovnìž na %Inline;, ale s tím, že tagy "a" nelze vnoøovat.
+
+Pozn.: platí, že %Flow; = %Block; + %Inline;
+Tzn., že tagy, jež mají povolený obsah %Flow;, mají povolený obsah i %Block; a %Inline;.
+
+Obsah tohoto elementu tvoøí elementy patøící do tøídy %Inline;.
+
+1.1.5 hgroup
+Totéž co tag group s tím, že tento tag mùže být obsahem HTML elementu head.
+Obsah tohoto elementu tvoøí elementy jež se mohou vyskytnout v obsahu elementu head. Jsou to elementy title, base, script, stzle, meta, link a object.
+
+1.1.6 list
+Totéž co tag group s tím, že tento tag mùže být obsahem HTML elementu ul a ol.
+Obsahem tohoto elementu mohou být elementy li nebo další podskupiny list.
+
+1.1.7 rows
+Totéž co tag group s tím, že tento tag mùže být obsahem HTML elementu table.
+Obsahem tohoto elementu mohou být elementy tr nebo další podskupiny rows.
+
+1.1.8 links
+Totéž co tag hgroup s tím, že obsahem tohoto tagu mohou být jen tagy link.
+Smyslem tohoto tagu je usnadnit dynamické pøidávání link tagù do head èásti dokumentu.
+Obsahem tohoto elementu mohou být pouze elementy link.
+
+1.1.9 scripts
+Totéž co tag hgroup s tím, že obsahem tohoto tagu mohou být jen tagy script a od nìj odvozené tagy (napø. javascript).
+Smyslem tohoto tagu je usnadnit dynamické pøidávání script tagù do head èásti dokumentu.
+Obsahem tohoto elementu mohou být pouze elementy script.
+
+1.2 Neskupinové elementy
+
+1.2.1 he
+Speciální tag jehož úèelem je zajistit vygenerování konkrétní HTML entity v její pùvodní podobì.
+Napø. pro vygenerování entity &copy; se použije zápis: <he code="copy" />
+Pokud místo tohoto tagu použijeme v templatu pøímo entitu &copy;, ve výsledném HTML kódu se vygeneruje pøímo unicode symbol odpovídající této entitì.
+Zvláštní význam má toto pro entitu &nbsp;, kde chceme-li zachovat "tvrdost" mezery, je tøeba použít konstrukce <he code="nbsp" />, jinak bude ve výsledném HTML kódu obyèejná mezera.
+
+1.2.2 newline
+Speciální tag jehož úèelem je sdìlit generátoru HTML kódu, aby pøešel na další øádek.
+Mùže být užiteèný, chceme-li vylepšit èitelnost generovaného kódu. Generátor HTML kódu nicménì funguje pomìrnì inteligentnì, takže v naprosté vìtšinì pøípadù tohoto tagu není zapotøebí.
+
+1.2.3 text
+Tag sloužící pro ohranièení textového obsahu.
+Obsahem tohoto tagu mùže být jen kombinace obyèejného textu a tagù "he" popsaného výše.
+
+1.2.4 javascript
+Specializace tagu script.
+Napø. <javascript src="js/utils.js" />
+vygeneruje html kód:
+<script type="text/javascript" src="/js/utils.js"></script>
+
+2. Elementy zobrazobacích modulù (views)
+
+Spoleèné atributy:
+eid ............... slouží k identifikaci elementu (tagu), je unikátní pro každý tag v rámci templatu
+                    (tento atribut mají všechny tagy, vèetnì základních HTML tagù)
+vid ............... slouží k identifikaci view modulu, tj. umožòuje sdílet data tímto atributem propojeným elementùm
+                    není-li uvedeno, systém vygeneruje vid "anonymous_#", kde # je poøadové èíslo, èísluje se od 1
+active ............ slouží k pøípadné deaktivaci (deaktivované view negeneruje html kód)
+                    pøípusté hodnoty: "0" nebo "" znamená neaktivní, cokoliv jiného aktivní
+                    není-li uvedeno, view se bere jako aktivní
+                    (tento atribut mají všechny tagy, vèetnì základních HTML tagù)
+
+2.1 Jednoduché views
+
+Jsou to views, které samy o sobì nemají asociovaný konkrétní sub-template, který by urèoval, co mají generovat.
+
+2.1.1 include
+
+Slouží k vèlenìní jiného templatového souboru.
+Atributy:
+template .......... jméno templatového souboru (vèetnì cesty, bez pøípony, relativnì k základnímu umístìní templatù)
+
+2.1.2 navpoint
+
+Zprostøedkovává generování linku (<a href="link">) podle konfigurace navigátoru projektu.
+Stránky, jež navigátor zná, jsou definovány v souboru: include/config/navigator_config.inc.php
+
+Atributy:
+atributy tagu "a" ...... tyto budou zkopírovány s výjimkou atributu href, který bude následnì pøepsán
+page ................... identifikátor, pod jakým je stránka zaregistrována v navigátoru projektu
+qs ..................... query string, jež má být pøipojen k url stránky
+nobase ................. je-li nastaveno, vygeneruje relativní link (vzhledem k základnímu adresáøi)
+                         pøípustné hodnoty: "0" nebo "" znamená ne, cokoliv jiného ano
+                         není-li uvedeno, výchozí hodnota je nenastaveno a generují se tedy hrefy s absolutními
+                         cestami (pro tyto úèely je v konfiguraci navigátoru produktu definován základní adresáø)
+
+2.1.3 mailto
+
+Zprostøedkovává generování linku (<a href="mailto:">) pro kontakty definované v konfiguraci projektu.
+Tyto kontaky jsou definovány v souboru: include/config/project_config.inc.php
+
+Atributy:
+contact ................ identifikátor, pod jakým je kontakt zaregistrován v konfiguraci projektu
+qs ..................... query string, jež se má pøipojit
+                         (zde je možné použít napø. hodnoty jako "subject=pozdrav&cc=nekdo@nekde.cz&bcc=nekdo.jinej@nekde.jinde.cz&body=Prvni odstavec zpravy.%0A%0ADruhy odstavec.%0A%0ATreti odstavec.")
+
+2.2 Subtemplatové views
+
+Toto jsou views, jejichž obsah se generuje podle urèitých templatových souborù.
+
+Spoleèné atributy:
+template .......... jméno templatového souboru (vèetnì cesty, bez pøípony, relativnì k základnímu umístìní templatù)
+                    v nìkterých pøípadech jen prefix templatového souboru (tj. úvodní èást jeho jména, viz tag "news" níže)
+
+Všechna subtemplatová views mají své výchozí templatové soubory, takže použití tohoto atributu je nepovinné.
+
+2.2.1 article
+
+Tento tag øeší zobrazení èlánku.
+Výchozí hodnota atributu template: "article/default"
+
+Atributy:
+mid ............... id textového modulu v databázi
+name .............. jméno textového modulu v databázi (pøi shodì názvu více modulù není zaruèeno, který se naète,
+                    pro identifikaci je lepší používat atribut "mid")
+title ............. nadpis, jež se použije v templatu jako obsah tagu <text id="nadpis" />;
+                    není-li v templatu takový tag, tento atribut bude ignorován
+
+Rovnìž je možné vùbec neuvést "mid" ani "name" a v takovém pøípadì se jako obsah èlánku použije obsah tagu article.
+
+2.2.2 news
+
+Tento tag øeší zobrazení seznamu novinek/èlánkù a detailu novinky/èlánku.
+Výchozí hodnota atributu template: "news/default"
+Tento tag pracuje se dvìma templatovými soubory, jejichž název dostane tak, že vezme hodnotu atributu template a pøipojí øetìzce "_list" a "_detail" a následnì pøíponu dle konfigurace (typicky ".tpl").
+
+Atributy:
+mid ............... id modulu novinek v databázi
+ngid .............. id skupiny novinek v databázi
+newsgroup ......... název skupiny novinek v databázi (hrozí nejednoznaènost, lepší je použít ngid)
+                    pozn.: pro identifikaci je lepší používat atribut "mid"
+size .............. poèet položek na jedné stránce
+                    výchozí hodnota: 5
+listmode .......... mód zobrazení seznamu novinek
+                    pøípustné hodnoty:
+                      "S" znamená výpis zkrácených textù novinek
+                      "C" znamená výpis celých textù novinek
+                    výchozí hodnota: "S"
+pagination ........ zobrazení navigaèní lišty
+                    pøípustné hodnoty:
+                      "" a "0" znamenají nezobrazovat
+                      "top" znamená jen nahoøe
+                      "bottom" znamená jen dole
+                      cokoliv jiného znamená nahoøe i dole
+                    výchozí hodnota: "both" (nahoøe i dole)
+detailpage ........ navigaèní link (jako atribut "page" u tagu navpoint) pro zobrazení detailu èlánku/novinky
+                    výchozí hodnota: "" (aktuální stránka)
+item .............. id položky, jež se má zobrazit v detailu
+                    je-li nastaveno, zobrazí se detail s použitím templatu pro detail (k názvu templatu se pøipojí _detail,
+                    v jiném pøípadì se zobrazuje seznam s použitím templatu pro seznam (k názvu templatu se pøipojí _list)
+page .............. výchozí èíslo stránky v pøípadì, že se zobrazuje seznam
+                    èíslo stránky zadané pøes query string má však vyšší prioritu
+                    výchozí hodnota: 1
+ns ................ namespace
+                    výchozí hodnota: "" (použijí se query string promìnné: "pg" a "ni")
+                    napø.: pokud bude ns="x", použili by se promìnné "xpg" a "xni"
+                    pozn.: smysl tohoto atributu je možnost zobrazení vícero news na jedné stránce tak, aby nebyl konflikt
+                           v promìnných query stringu
+qs ................ query string, jenž se má pøipojit k vygenerovaným linkùm
+                    není-li nastaven (což je výchozí stav), pracuje se s aktuálním query stringem
+lightbox .......... automatické oznaèení jpg-obrázkových "hrefù" atributem rel pro lightbox
+                    pøípustné hodnoty:
+                      "" a "0" znamenají ne
+                      "roadtrip" pøidá atribut rel="lightbox[roadtrip]"
+                      cokoliv jiného zpùsobí pøidání rel="lightbox"
+                    výchozí hodnota: ne
+
+2.2.3 pagination
+
+Tento tag øeší zobrazení navigaèní lišty. 
+Výchozí hodnota atributu template: "pagination/default"
+
+Atributy:
+radius ............ polomìr zobrazení položek kolem aktuální stránky
+                    pøípustné hodnoty: celé nezáporné èíslo
+                    výchozí hodnota: 2 (odpovídá výstupu: "1 ... 48 49 50 51 52 ... 100")
+                    napø.: pro radius 1, by výstup byl: "1 ... 49 50 51 ... 100")
+total ............. celkový poèet stránek
+current ........... aktuální stránka
+link .............. navigaèní bod pro cílové linky (jako atribut "page" u tagu navpoint)
+pagestr ........... Text zobrazený pøed výètem odkazù, napø. "Strana"
+                    je-li uveden, použije se a od odkazù se oddìlí dvojteèkou
+qsvar ............. promìnná query stringu použitá pro èíslo stránky u generovaných linkù
+qs ................ query string, jenž se má pøipojit k vygenerovaným linkùm
+                    není-li nastaven (což je výchozí stav), pracuje se s aktuálním query stringem
+
+2.2.4 navmenu
+
+Tento tag øeší zobrazení navigaèního menu
+Výchozí hodnota atributu template: "navmenu/default"
+
+Atributy:
+current ........... identifikátor aktivního prvku menu
+autodetect ........ použít autodetekci (navigaèní identifikátor musí odpovídat aktuálnímu skriptu)
+                    v pøípadì, že se použije autodetekce, atribut "current" postrádá smysl, nebo jeho hodnota bude pøepsána
+
+Pozn.: Templatový soubor je zpracován tak, že všechny skupiny, které mají atribut type="menuitem" definují položku menu tak, že obsahují právì 2 elementy (první pro neaktivní formu položky, druhý pro aktivní). Pøi zpracování templatu se prostì vždy právì jeden prvek každé takové skupiny zneaktivní.
+
+2.2.5 catalog
+
+Tento tag øeší zobrazení katalogu. Umí zobrazit vlastní katalog, detail produktu a katalogové menu podle zadaného parametru "case".
+Pokud je hodnota parametru case nastavená na "menu", pak zobrazuje katalogové menu, jinak zobrazuje katalog nebo detail produktu, podle vstupních dat, jež má k dispozici (napø. podle url, které mùže být jak url produktové øady, tak konkrétního produktu).
+Výchozí hodnota atributu template: "catalog/default"
+Tento tag pracuje se tøemi templatovými soubory, jejichž název dostane tak, že vezme hodnotu atributu template a pøipojí øetìzce "_catalog", "_product" nebo "_badurl" a následnì pøíponu dle konfigurace (typicky ".tpl"). Katalogové menu se jako jediné negeneruje pomocí templatù, ale má pevnì danou strukturu (kombinace "ul", "li" a "a href").
+
+Atributy:
+name .............. jméno katalogu (pro pøípad vícero katalogù na jedné stránce v rámci jednoho projektu;
+                    nicménì to zatím není 100% podporováno)
+                    toto je povinný údaj, a daný katalog musí být pod tímto ménem zaregistrován v konfiguraci navigátoru
+                    (vèetnì dalších doplòujících údajù, pøíklad katalogu se jménem "katalog", sekce z navigator_config.inc.php:
+
+                      'katalog' => 'katalog',
+                      'katalog_urlbase' => 'katalog/',
+                      'katalog_photos' => 'documents/eshop/catalog/',
+                      'katalog_photos_detail' => 'documents/eshop/detail/',
+                      'katalog_photos_big' => 'documents/eshop/photo/',
+                      'katalog_photos_extra' => 'documents/eshop/extra/',
+                      'katalog_photos_illustrative' => 'documents/eshop/illustrative/',
+                      'katalog_photos_collection' => 'documents/eshop/collection/',
+                      'katalog_property_icons' => 'documents/eshop/properties/icons/',
+                      'katalog_property_colors' => 'documents/eshop/properties/colors/',
+                      'katalog_order' => 'objednavka'
+
+line .............. id produktové øady, jež se má zobrazit v zobrazení katalogu
+                    (tato hodnota má nižší prioritu než parametry query stringu a pøípadné url produktu èi øady)
+                    tj. použití tohoto parametru lze oèekávat pouze u stránek, kde chceme staticky zobrazit konkrétní øadu
+product ........... id produktu, jež se má zobrazit v detailním zobrazení produktu z katalogu
+                    (platí totéž co pro parametr "line")
+prodbind .......... id vazby produktu, jež se má zobrazit v detailním zobrazení produktu z katalogu
+                    (platí totéž co pro parametr "line")
+                    (alternativa k parametru "product"; jde o preferovaný zpùsob identifikace produktu)
+url ............... "hezké" url produktu nebo øady, jež má být zobrazen(a)
+                    (platí totéž co pro parametr "line")
+width ............. poèet produktù na jednom øádku v katalogovém zobrazení
+                    výchozí hodnota: 3
+rows .............. poèet øádkù v katalogovém zobrazení
+                    výchozí hodnota: 3
+pagination ........ stránkovaní katalogu
+                    pøípustné hodnoty:
+                      "" a "0" znamenají nezobrazovat
+                      "top" znamená jen nahoøe
+                      "bottom" znamená jen dole
+                      cokoliv jiného znamená nahoøe i dole
+                    výchozí hodnota: "both" (nahoøe i dole)
+page .............. stránka katalogu ke zobrazení
+                    èíslo stránky zadané pøes query string má však vyšší prioritu
+                    výchozí hodnota: 1
+ns ................ namespace (slouží pro pøípad potøeby použít vícero katalogù na 1 stránce pro jejich oddìlení)
+                    výchozí hodnota: ""
+lightbox .......... automatické oznaèení jpg-obrázkových "hrefù" atributem rel pro lightbox
+                    pøípustné hodnoty:
+                      "" a "0" znamenají ne
+                      "roadtrip" pøidá atribut rel="lightbox[roadtrip]"
+                      cokoliv jiného zpùsobí pøidání rel="lightbox"
+                    výchozí hodnota: ne
+
+Popis templatu pro zobrazení katalogu:
+Ve speciální skupinì, jsou nadefinovány tagy, jež jsou pak vkládány níže, tato skupina má parametr active="0", což znamená, že její obsah se nebude generovat (slouží jen jako zásobník pøedloh). V této skupinì se nachází definice tìchto položek:
+  obrazek_sipka
+  obrazek_produktu
+  obrazek_neni_k_dispozici
+  obrazek_vlastnost_ikona
+  obrazek_vlastnost_barva
+  link_objednat
+  vlastnost
+    nazev_vlastnosti
+	  hodnoty_vlastnosti
+  umisteni_vzor
+    umisteni_obsah
+  zadne_produkty
+  prazdna_stranka
+
+Struktura templatu pro katalog je specifická. Jde o tabulku s libovolným poètem øádkù, kde v každém øádku jsou právì 2 <td> elementy. Toto musí být dodrženo. Zmínìné 2 <td> elementy mají specifický význam. První obsahuje všechny informace o produktu, jež chceme zobrazit, druhý pøedstavuje obsah, jež má být použit v pøípadì, že chceme místo produktu zobrazit prázdné pole. Tabulka mùže mít více øádkù proto, aby bylo možné vodorovnì zarovnat urèité informace produktu. Tj. soubor prvních td-tagù v každém tr-tagu pøedstavuje jeden produkt. Soubor druhých td-tagù v každém tr-tagu pøedstavuje nepøítomný produkt (prázdné pozadí). Druhého tagu bude využito jen v pøípadì, že pracujeme s katalogem vìtší šíøky než 1. Pracujeme-li s katalogem o rozmìrech 3x3, a jsou-li ke zobrazení 4 produkty, první td-tagy se použijí 4x a druhé td-tagy následnì 2x (poslední øádek, kde by již byly jen druhé td-tagy, se již negeneruje).
+
+V katalogu je možné zobrazit i konkrétní vlastnost produktu, napø. barvy produktu.
+K tomu staèí na správné místo (nìkam dovnitø nìkterého z prvních td-tagù) vložit tag:
+<inline type="pp" specification="3" />
+... kde 3 je id vlastnosti produktu, kterou chceme zobrazit.
+Blok html kódu, ve kterém se tento inline element nachází mùžeme rovnìž obalit libovolným tagem s parametrem eid="pp_group_3" (kde 3 je opìt vlastnost produktu) (vlastnì takto mùžeme obalit cokoliv). Smysl je ten, že v pøípadì, že daný produkt nemá žádnou pøiøazenou hodnotu této vlastnosti, celý tento blok se deaktivuje a nebude se tudíž generovat.
+Pøíklady:
+<p eid="pp_group_2"><inline type="pp" specification="2" /></p>
+<p eid="pp_group_4"><i>Velikost: <b><inline type="pp" specification="4" /></b></i></p>
+To, zda se vlastnost vypíše jako text, barva, ikona, èi jinak, je dáno typem dané vlastnosti.
+Speciální význam má tag s eid="vlastnosti", který slouží k zobrazení vícero vlastností souèasnì.
+V defaultním templatu detailu produktu je použit takto: (v defaultním templatu katalogu není použit, aèkoli by mohl)
+<rows eid="vlastnosti" specification="!1,3" />
+Byl použit tag rows, který mùže obsahovat tagy <tr>, což odpovídá definici položky "vlastnost" v pøedlohové skupinì.
+Parametr specification pak upøesòuje, které vlastnosti se mají èi nemají zobrazit. Výchozí stav je, že se zobrazí všechny.
+Je však možné buï uvést výèet, jež se má zobrazit (id vlastností oddìlená èárkami, nebo výèet všech, jež se zobrazit nemají; toho lze docílit tak, že pøed vlastní výèet se vloží znak vykøièník, tak jako je to v defaultním templatu).
+<rows eid="vlastnosti" specification="!1,3" /> ...
+... tedy znamená: výèet všech vlastností s výjimkou vlastností 1 a 3.
+
+
+Popis templatu pro zobrazení detailu produktu:
+Opìt je tu pøedlohová skupina, která obsahuje následující položky a jejich podpoložky:
+  obrazek_sipka
+  obrazek_hlavni
+  obrazek_neni_k_dispozici
+  obrazek_dalsi
+  obrazek_ilustrativni
+  obrazek_kolekce
+  obrazek_vlastnost_ikona
+  obrazek_vlastnost_barva
+  link_objednat
+  vlastnost
+    nazev_vlastnosti
+    hodnoty_vlastnosti
+  umisteni_vzor
+    umisteni_obsah
+
+Viz template.
+Stejnì jako u templatu pro katalog zde fungují položky:
+<inline type="pp" specification="#" /> a položky s eid="pp_group_#", kde # je id vlastnosti
+rovnìž pak položka s eid="vlastnosti" pro výèet vlastností popsaná výše
+
+Template "badurl" slouží k zobrazení chybové hlášky v pøípadì použití hezkého url, které je neplatné.
+V tomto templatu je jediná položka a to je položka s eid="url", do které se v pøípadì její pøítomnosti doplní text s chybným url.
+Tento template v defaultním provedení obsahuje jediný øádek:
+<div class="info-text2">Položka <b><text eid="url" /></b> již není souèástí katalogu.</div>
+
+2.2.6 mailer
+
+Tento tag øeší zobrazení a funkènost kontaktního formuláøe.
+Výchozí hodnota atributu template: "mailer/default"
+Tento tag pracuje se ètyømi templatovými soubory, jejichž název dostane tak, že vezme hodnotu atributu template a pøipojí øetìzce "_form", "_sent", "_spam" a "_error" a následnì pøíponu dle konfigurace (typicky ".tpl").
+Template konèící "_form" je templatem vlastního kontaktního formuláøe. Ostatní templaty øeší zobrazení výsledku pokusu o odeslání zprávy:
+_sent: Template obsahující informaci o tom, že zpráva byla úspìšnì odeslána.
+_spam: Template obsahující informaci o tom, že zpráva byla vyhodnocena jako spam. (klidnì mùže být totožná se _sent, za úèelem neprozrazení)
+_error: Template obsahující informaci o tom, že bìhem pokusu odeslat zprávu došlo k nìjaké blíže neurèené chybì.
+
+Atributy:
+contact ............... kontakt, jež se má použít pro odeslání zprávy (musí být nadefinován v konfiguraci projektu)
+                        výchozí hodnota: "admin"
+                        [jde o tuto sekci souboru include/config/project_config.inc.php:
+                        	'contacts' => array
+                        	(
+                        		'admin' => array
+                        		(
+                        			'email' => 'windsor@digital-realms.eu',
+                        			'name' => 'Mgr. Tomáš Windsor'
+                        		)
+                        	),
+                        ]
+subject ............... subjekt emailu, jež bude zaslán
+                        výchozí hodnota: "Vzkaz z webových stránek"
+name .................. název inputu položky "Jméno"
+                        výchozí hodnota: "jmeno"
+                        Tento atribut má smysl pøenastavit na jinou hodnotu zejména v pøípadì, že se používá antispamová kontrola.
+email ................. název inputu položky "Vaše emailová adresa"
+                        výchozí hodnota: "email"
+message ............... název inputu položky "Váš vzkaz"
+                        výchozí hodnota: "zprava"
+submit ................ hodnota (tj. text tlaèítka) pro submit tlaèítko formuláøe
+fake_name ............. název falešného (neviditelného) inputu položky "Jméno"
+                        výchozí hodnota: nenastaveno
+                        Pokud není nastaven, vùbec se tento input nebude generovat.
+                        Neviditelnost tohoto inputu je tøeba zajistit správným nastylováním.
+                        V defaultním templatu jsou již tyto inputy nachystané, jen jsou deaktivované atributem active="0".
+fake_email ............ název falešného (neviditelného) inputu položky "Vaše emailová adresa"
+                        platí totéž co pro fake_name
+fake_message .......... název falešného (neviditelného) inputu položky "Váš vzkaz"
+                        platí totéž co pro fake_name
+fake_submit ........... hodnota (tj. text tlaèítka) falešného (neviditelného) submit tlaèítka formuláøe
+                        platí totéž co pro fake_name
+hidden ................ název skrytého inputu (jeho úèel je javascriptová antispamová kontrola)
+                        výchozí hodnota: nenastaveno
+hidden_val ............ hodnota skrytého inputu (mìlo by jít o libovolné pøirozené èíslo od 1 do 500000000, tj. do pùl miliardy)
+                        výchozí hodnota: nenastaveno
+                        Pøed submitem bude hodnota modifikována javascriptem a php kód pak provede stejnou manipulaci a provede srovnání.
+                        Pokud spam-bot obejde javascript a neprovede tutéž manipulaci pøed odesláním formuláøe, bude detekován.
+ns .................... namespace (stejný význam jako u pøedešlých tagù)
+                        výchozí hodnota: "" (tj. prázdný øetìzec)

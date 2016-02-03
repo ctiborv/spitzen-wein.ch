@@ -1,0 +1,199 @@
+@import "project.conf";
+@import "elements";
+// stránkování katalog
+
+.lista {
+	background:transparent; width:730px; margin:4px auto; padding:10px 0; text-align:left;
+	strong {
+		padding:5px 10px; background:@color3; text-decoration:none; color:@color1;
+	}
+	a {
+		padding:5px 10px; background:@color4; text-decoration:none; color:@text3;
+		&:hover {
+			background:@color7; text-decoration:none; color:@text3;
+		}
+	}
+}
+
+
+// katalog menu
+
+
+// katalog info v pripade ze v katalogu neni zadny produkt
+.katalog-info { background:#FF9; border:1px dashed #F90; color:#F30; text-align:center; width:600px; margin:25px auto 0 auto; padding:25px 0;}
+.katalog-warning {}
+
+// Katalog
+
+.katalog-h2 {
+	color:@text2; font-size:20px; padding:10px 0; display:block;
+}
+.katalog {
+	width:694px; background:transparent; padding:0px 0 10px 0; margin:10px 0 0 3px;
+	hr {
+		border:0px solid #ccc;
+	}
+}
+#tab-katalog {
+	margin:25px 0px; padding:0px; background:transparent; width:700px; display: block;
+}
+
+// Katalog výčet obrázkový
+
+.td-kat-01f, .td-kat-01n {
+	width:240px; text-align:center; padding:0 0 0px 0; font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; height:auto;
+	h2 {
+		color:@text7; width:220px; min-height:35px; font-size:16px; margin:10px auto 10px auto; padding:0 5px; line-height:18px;
+	}
+	a {
+		color:@text2; text-decoration:none;
+		&:hover {
+			color:@text7; text-decoration:none;
+		}
+	}
+	.status-produkt {
+		.novinka {
+			position: absolute; left:0px; bottom:40px;
+			background: @color3; padding:2px 4px; font-size: 13px; color:@text5; .rounded(5px); display: block; margin:0 0 2px 5px;
+		}
+		.akce {
+			position: absolute; left:0px; bottom:20px;
+			background: @color3; padding:2px 4px; font-size: 13px; color:@text5; .rounded(5px); display: block; margin:0 0 2px 5px;
+		}
+		.sleva {
+			position: absolute; left:0px; bottom:0px;
+			background: @color3; padding:2px 4px; font-size: 13px; color:@text5; .rounded(5px); display: block; margin:0 0 2px 5px;
+		}
+	}
+	.raritni {
+		position: absolute; left:0px; bottom:0px; background:transparent url("@{base-url}/rariten_bg.png") no-repeat left top; width:102px; height: 84px;
+		strong {
+			display: none;
+		}
+	}
+}
+.td-kat-01n, .td-kat-02n {
+	border-left:1px dashed #CCC;
+}
+.td-kat-02n, .td-kat-02f {
+	width:240px;
+	.detail a {
+		background: @color3; width:160px; margin: 5px auto; padding:8px 0px; text-align: center; color:@text5; display: block; .rounded(5px); text-decoration: none;
+		&:hover {
+			background: @color7; color:@text5;
+		}
+	}
+}
+.kat-produkt {
+	margin:0 auto; padding: 0 0 0px 0; width:230px; height:auto; position:relative;
+	a {
+		vertical-align:top;
+		img {
+			border:0; margin:2px auto; display:block;  vertical-align:top;
+		}
+	}
+	p {
+		padding:10px; font-size:12px; text-align:center; color:#666; line-height:18px;
+	}
+	hr {
+		border:0; border-bottom:1px dashed #CCC; }
+}
+.old {
+	display: block; position: absolute; right:2px; top:120px;  width:60px; height:50px; padding:10px 0 0 0; background:transparent url("@{base-url}/cena-old_bg.png") no-repeat center; color:@color1; font-size: 16px; font-weight: bold; font-family: "Times New Roman", Arial, Helvetica, sans-serif; text-align: center; vertical-align: middle; z-index:1; text-decoration:line-through;
+	strong {
+		display: block; font-weight: regular; font-size: 14px;
+	}
+}
+.new {
+	display: block; position: absolute; right:10px; top:155px;  width:80px; height:72px; padding:10px 0 0 0; background:transparent url("@{base-url}/cena-new_bg.png") no-repeat center; color:@color1; font-size: 22px; font-weight: bold; font-family: "Times New Roman", Arial, Helvetica, sans-serif; text-align: center; vertical-align: middle; z-index:2;
+	strong {
+		display: block; font-weight: regular; font-size: 15px;
+	}
+}
+.procenta {
+	display: block; position: absolute; right:55px; top:120px; width:61px; height:61px; background:transparent url("@{base-url}/procenta_bg.png") no-repeat center; font-family: "MS Trebuchet", Arial, Helvetica, sans-serif; text-align: center; color:@text8; font-size: 22px; font-weight: bold; z-index:0; line-height: 60px; font-weight: bold;
+	strong {
+		font-size: 15px; font-weight: normal;
+	}
+}
+
+
+.tr-kat-white hr { border:0; border-bottom:1px dashed #ccc;}
+
+/* katalog detail */
+.tab-detail {
+	background:transparent; width:700px; margin:35px 0 0 0; font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+.navigace {
+	background:@color4; padding:4px 10px; vertical-align: middle; line-height: 24px; font-size: 15px;
+	a {
+		color:@text3;
+	}
+	img { vertical-align: middle;}
+}
+.t-d-nadpis {
+	h3 {
+		font-size:20px; color:@text3; padding:15px 0 35px 0;
+	}
+}
+.t-d-foto {
+	width:320px; position: relative; display: block;
+	.t-d-foto-hlavni {
+		img {
+			.rounded(5px); border:none solid @color4; .border-radius(5px, 5px, 5px, 5px);
+		}
+	}
+	.raritni {
+		position: absolute; left:-10px; top:-10px; background:transparent url("@{base-url}/rariten_bg.png") no-repeat left top; width:102px; height: 84px;
+		strong {
+			display: none;
+		}
+	}
+	.status-produkt {
+		.novinka {
+			position: absolute; right:-10px; top:10px;
+			background: @color3; padding:4px 6px; font-size: 18px; color:@text5; .rounded(5px); display: block; margin:0 0 2px 5px;
+		}
+		.akce {
+			position: absolute; right:-10px; top:40px;
+			background: @color3; padding:4px 6px; font-size: 18px; color:@text5; .rounded(5px); display: block; margin:0 0 2px 5px;
+		}
+		.sleva {
+			position: absolute; right:-10px; top:70px;
+			background: @color3; padding:4px 6px; font-size: 18px; color:@text5; .rounded(5px); display: block; margin:0 0 2px 5px;
+		}
+		.old {
+			display: block; position: absolute; right:2px; bottom:70px;  width:60px; height:50px; padding:10px 0 0 0; background:transparent url("@{base-url}/cena-old_bg.png") no-repeat center; color:@color1; font-size: 16px; font-weight: bold; font-family: "Times New Roman", Arial, Helvetica, sans-serif; text-align: center; vertical-align: middle; z-index:1; text-decoration:line-through;
+			strong {
+				display: block; font-weight: regular; font-size: 14px;
+			}
+		}
+		.new {
+			display: block; position: absolute; right:10px; bottom:10px;  width:80px; height:72px; padding:10px 0 0 0; background:transparent url("@{base-url}/cena-new_bg.png") no-repeat center; color:@color1; font-size: 22px; font-weight: bold; font-family: "Times New Roman", Arial, Helvetica, sans-serif; text-align: center; vertical-align: middle; z-index:2;
+			strong {
+				display: block; font-weight: regular; font-size: 15px;
+			}
+		}
+		.procenta {
+			display: block; position: absolute; right:60px; bottom:65px; width:61px; height:61px; background:transparent url("@{base-url}/procenta_bg.png") no-repeat center; font-family: "MS Trebuchet", Arial, Helvetica, sans-serif; text-align: center; color:@text8; font-size:22px; font-weight: bold; z-index:0; line-height: 60px; font-weight: bold;
+			strong {
+				font-size: 17px; font-weight: normal;
+			}
+		}
+	}
+}
+.t-d-para {
+	vertical-align: top;
+}
+.tab-detail-V {
+	margin:0 0 0 15px; background:none; padding:10px 10px 15px 10px;
+	table {
+		width:340px; .rounded(5px); vertical-align: middle; line-height: 20px; font-size: 16px;
+		.atribut {
+			padding:4px 0 4px 10px; border-bottom: 1px dashed @color7;
+		}
+		.hodnota {
+			padding:4px 0 4px 10px; border-bottom: 1px dashed @color7;
+		}
+	}
+}

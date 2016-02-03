@@ -1,0 +1,67 @@
+body { font-family:Arial, "Arial Black"; width:595px;}
+.faktura { width:545px; margin:0 0 0 50px;}
+
+.adresa1 {}
+.adresa1L { width:450px;}
+.adresa1P {vertical-align:text-top; padding:50pt 0 30pt 0; font-size:11pt; font-weight:normal; font-family:Arial, "Arial Black";}
+.adresa1P span { display:inline-block; width:105px; }
+.adresa2 {}
+.adresa2L { width:450px;}
+.adresa2P { padding:0pt 0 0 0;}
+.adresa2Lh3 { font-size:11pt; padding:0pt; font-family:Arial, "Arial Black";}
+
+.objinfo { height:auto; padding:10pt 0 10pt 0; text-align:left; font-size:10pt; font-weight:bold;}
+.objinfo1 { height:auto; padding:0 0 20pt 0; font-size:15pt;}
+
+.polozky {}
+.polozkynadpis td { border-bottom: 2px dotted #333; font-weight:normal; padding:0 0 5px 0;}
+.polozky td { border-bottom: 2px dotted #333;}
+
+.nfks { text-align:left; width:20px; font-size:10pt;}
+.fks { text-align:left; font-size:10pt; font-weight:bold; width:60px;}
+.nfnm { width:300px; font-size:10pt;}
+.fnm { width:300px; font-size:10pt; padding:10px 0;}
+.nfcn { width:125px; text-align:center; font-size:10pt;}
+.fcn { width:125px; text-align:center; font-size:10pt; vertical-align:top; padding:10px 0;}
+.nfck { width:110px; text-align:right; font-size:10pt;}
+.fck { width:110px; text-align:right; font-size:10pt; vertical-align:top; padding:10px 0;}
+
+.infodoprava td { padding:5px 0 0px 0; font-size:10pt;}
+.infoplatba td { padding:5px 0 35px 0; font-size:10pt;}
+
+.hodnota { width:550; text-align:right; font-size:10pt;}
+.hodnota-cena { width:100px padding:0 0 0 0px; font-size:10pt; text-align:right;}
+
+.doprava { text-align:right; font-size:10pt;}
+.doprava-cena {padding:0 0 0 0px; font-size:10pt; text-align:right;}
+
+.dph { text-align:right; font-size:10pt;}
+.dph-cena {padding:0 0 0 0px; font-size:10pt; text-align:right;}
+
+.sleva { text-align:right; font-size:10pt;}
+.sleva-cena {padding:0 0 0 0px; font-size:10pt; text-align:right;}
+
+.celkem { text-align:right; font-size:10pt;}
+.celkem-cena {padding:0 0 0 0px; font-size:16px; font-weight:bold; font-size:12pt; text-align:right;}
+
+
+.platba-info td {padding:35px 0 0 0;  font-size:10pt;}
+.pata-info {padding:100px 0 0 0; font-size:14pt; font-weight:bold;}
+
+/*.adresa1P { height:150px; vertical-align:text-top; padding:15px 0 0 0; font-size:14pt; font-weight:bold; font-family:Arial, "Arial Black";}
+.adresa1Ph1 { text-decoration:underline; color:#000;}
+.adresa1Ptel { display:inline-block; width:150px; text-align:right;}
+.adresa1P-odkaz { color:#009; text-decoration:none; font-style:italic;}
+.adresa2 td { height:auto; padding:0 0 50px 0;}
+.objinfo { height:auto; padding:0 0 10px 0; text-align:left; font-size:13pt; font-weight:bold;}
+.objinfo1 { height:auto; padding:0 0 20px 0; font-size:18pt;}
+.adresa2Lh3 { font-size:13pt; font-family:Arial, "Arial Black";}
+.adresa2Ph3 { font-size:13pt; font-family:Arial, "Arial Black";}
+.adresa2L { font-size:13pt; width:450px; font-weight:bold;}
+.adresa2P { font-size:13pt; width:420px; font-weight:bold;}
+.adresa2P span { width:120px; display:block;}
+.adresa1Ptel { text-align:right;}
+
+
+
+*/

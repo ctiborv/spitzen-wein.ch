@@ -1,0 +1,1 @@
+<div class="info-text2">Položka <b><text eid="url" /></b> již není součástí katalogu.</div>

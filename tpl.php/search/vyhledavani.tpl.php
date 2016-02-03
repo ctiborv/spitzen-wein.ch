@@ -1,0 +1,34 @@
+<?php
+$_e_[0] = $_b_->build('group');
+$_e_[1] = $_b_->build('form');
+$_e_[2] = $_b_->build('div');
+$_e_[3] = $_b_->build('h2');
+$_e_[4] = $_b_->build('text_content');
+$_e_[4]->set('text', 'Suche Begriff eingeben');
+$_e_[3]->add($_e_[4]);
+$_e_[5] = $_b_->build('input');
+$_e_[5]->set('eid', 'vyhledavani');
+$_e_[5]->set('name', 's');
+$_e_[5]->set('value', 'Suchen');
+$_e_[5]->set('class', 'inp16');
+$_e_[5]->set('onfocus', 'wakeInput(this,\'Suchen\')');
+$_e_[5]->set('onblur', 'sleepInput(this,\'Suchen\')');
+$_e_[5]->set('type', 'text');
+$_e_[6] = $_b_->build('autoinput');
+$_e_[6]->set('formid', 'vyhledavani');
+$_e_[6]->set('eid', 'odeslat');
+$_e_[6]->set('type', 'submit');
+$_e_[6]->set('value', '');
+$_e_[6]->set('class', 'but16');
+$_e_[6]->set('onclick', 'return Mailer_Form.onSubmit(\'jsv\')');
+$_e_[2]->set('class', 'search');
+$_e_[2]->add($_e_[3]);
+$_e_[2]->add($_e_[5]);
+$_e_[2]->add($_e_[6]);
+$_e_[1]->set('render', 'js');
+$_e_[1]->set('method', 'get');
+$_e_[1]->set('action', '/katalog');
+$_e_[1]->set('enctype', 'application/x-www-form-urlencoded');
+$_e_[1]->add($_e_[2]);
+$_e_[0]->add($_e_[1]);
+?>

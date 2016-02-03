@@ -1,0 +1,509 @@
+.lista {
+  background: transparent;
+  width: 730px;
+  margin: 4px auto;
+  padding: 10px 0;
+  text-align: left;
+}
+.lista strong {
+  padding: 5px 10px;
+  background: #c52852;
+  text-decoration: none;
+  color: #ffffff;
+}
+.lista a {
+  padding: 5px 10px;
+  background: #cec9a9;
+  text-decoration: none;
+  color: #661317;
+}
+.lista a:hover {
+  background: #a6a181;
+  text-decoration: none;
+  color: #661317;
+}
+.katalog-info {
+  background: #FF9;
+  border: 1px dashed #F90;
+  color: #F30;
+  text-align: center;
+  width: 600px;
+  margin: 25px auto 0 auto;
+  padding: 25px 0;
+}
+.katalog-h2 {
+  color: #666666;
+  font-size: 20px;
+  padding: 10px 0;
+  display: block;
+}
+.katalog {
+  width: 694px;
+  background: transparent;
+  padding: 0px 0 10px 0;
+  margin: 10px 0 0 3px;
+}
+.katalog hr {
+  border: 0px solid #ccc;
+}
+#tab-katalog {
+  margin: 25px 0px;
+  padding: 0px;
+  background: transparent;
+  width: 700px;
+  display: block;
+}
+.td-kat-01f,
+.td-kat-01n {
+  width: 240px;
+  text-align: center;
+  padding: 0 0 0px 0;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  height: auto;
+}
+.td-kat-01f h2,
+.td-kat-01n h2 {
+  color: #a6a181;
+  width: 220px;
+  min-height: 35px;
+  font-size: 16px;
+  margin: 10px auto 10px auto;
+  padding: 0 5px;
+  line-height: 18px;
+}
+.td-kat-01f a,
+.td-kat-01n a {
+  color: #666666;
+  text-decoration: none;
+}
+.td-kat-01f a:hover,
+.td-kat-01n a:hover {
+  color: #a6a181;
+  text-decoration: none;
+}
+.td-kat-01f .status-produkt .novinka,
+.td-kat-01n .status-produkt .novinka {
+  position: absolute;
+  left: 0px;
+  top: 180px;
+  background: #c52852;
+  padding: 2px 4px;
+  font-size: 13px;
+  color: #ffffff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  display: block;
+  margin: 0 0 2px 5px;
+}
+.td-kat-01f .status-produkt .akce,
+.td-kat-01n .status-produkt .akce {
+  position: absolute;
+  left: 0px;
+  top: 200px;
+  background: #c52852;
+  padding: 2px 4px;
+  font-size: 13px;
+  color: #ffffff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  display: block;
+  margin: 0 0 2px 5px;
+}
+.td-kat-01f .status-produkt .sleva,
+.td-kat-01n .status-produkt .sleva {
+  position: absolute;
+  left: 0px;
+  top: 220px;
+  background: #c52852;
+  padding: 2px 4px;
+  font-size: 13px;
+  color: #ffffff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  display: block;
+  margin: 0 0 2px 5px;
+}
+.td-kat-01f .raritni,
+.td-kat-01n .raritni {
+  position: absolute;
+  left: 0px;
+  top: 0;
+  background: transparent url("../styles/images/rariten_bg.png") no-repeat left top;
+  width: 102px;
+  height: 84px;
+}
+.td-kat-01f .raritni strong,
+.td-kat-01n .raritni strong {
+  display: none;
+}
+.td-kat-01n,
+.td-kat-02n {
+  border-left: 1px dashed #CCC;
+}
+.td-kat-02n,
+.td-kat-02f {
+  width: 240px;
+}
+.td-kat-02n .detail a,
+.td-kat-02f .detail a {
+  background: #c52852;
+  width: 160px;
+  margin: 5px auto;
+  padding: 8px 0px;
+  text-align: center;
+  color: #ffffff;
+  display: block;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  text-decoration: none;
+}
+.td-kat-02n .detail a:hover,
+.td-kat-02f .detail a:hover {
+  background: #a6a181;
+  color: #ffffff;
+}
+.kat-produkt {
+  margin: 0 auto;
+  padding: 0 0 0px 0;
+  width: 230px;
+  height: auto;
+  position: relative;
+}
+.kat-produkt a {
+  vertical-align: top;
+}
+.kat-produkt a img {
+  border: 0;
+  margin: 2px auto;
+  display: block;
+  vertical-align: top;
+}
+.kat-produkt p {
+  padding: 10px;
+  font-size: 12px;
+  text-align: center;
+  color: #666;
+  line-height: 18px;
+}
+.kat-produkt hr {
+  border: 0;
+  border-bottom: 1px dashed #CCC;
+}
+.old {
+  display: block;
+  position: absolute;
+  right: 2px;
+  top: 130px;
+  width: 60px;
+  height: 50px;
+  padding: 10px 0 0 0;
+  background: transparent url("../styles/images/cena-old_bg.png") no-repeat center;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Times New Roman", Arial, Helvetica, sans-serif;
+  text-align: center;
+  vertical-align: middle;
+  z-index: 1;
+  text-decoration: line-through;
+}
+.old strong {
+  display: block;
+  font-weight: regular;
+  font-size: 14px;
+}
+.new {
+  display: block;
+  position: absolute;
+  right: 10px;
+  top: 165px;
+  width: 80px;
+  height: 72px;
+  padding: 10px 0 0 0;
+  background: transparent url("../styles/images/cena-new_bg.png") no-repeat center;
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: bold;
+  font-family: "Times New Roman", Arial, Helvetica, sans-serif;
+  text-align: center;
+  vertical-align: middle;
+  z-index: 2;
+}
+.new strong {
+  display: block;
+  font-weight: regular;
+  font-size: 15px;
+}
+.procenta {
+  display: block;
+  position: absolute;
+  right: 55px;
+  top: 130px;
+  width: 61px;
+  height: 61px;
+  background: transparent url("../styles/images/procenta_bg.png") no-repeat center;
+  font-family: "MS Trebuchet", Arial, Helvetica, sans-serif;
+  text-align: center;
+  color: #555555;
+  font-size: 22px;
+  font-weight: bold;
+  z-index: 0;
+  line-height: 60px;
+  font-weight: bold;
+}
+.procenta strong {
+  font-size: 15px;
+  font-weight: normal;
+}
+.tr-kat-white hr {
+  border: 0;
+  border-bottom: 1px dashed #ccc;
+}
+/* katalog detail */
+.tab-detail {
+  background: transparent;
+  width: 700px;
+  margin: 35px 0 0 0;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+.navigace {
+  background: #cec9a9;
+  padding: 4px 10px;
+  vertical-align: middle;
+  line-height: 24px;
+  font-size: 15px;
+}
+.navigace a {
+  color: #661317;
+}
+.navigace img {
+  vertical-align: middle;
+}
+.t-d-nadpis h3 {
+  font-size: 20px;
+  color: #661317;
+  padding: 15px 0 35px 0;
+}
+.t-d-foto {
+  width: 320px;
+  height: 400px;
+  position: relative;
+  display: block;
+}
+.t-d-foto .t-d-foto-hlavni img {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: none solid #cec9a9;
+  -webkit-border-top-right-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -webkit-border-top-left-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -moz-border-radius-topleft: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+.t-d-foto .raritni {
+  position: absolute;
+  left: -10px;
+  top: -10px;
+  background: transparent url("../styles/images/rariten_bg.png") no-repeat left top;
+  width: 102px;
+  height: 84px;
+}
+.t-d-foto .raritni strong {
+  display: none;
+}
+.t-d-foto .status-produkt .novinka {
+  position: absolute;
+  right: -10px;
+  top: 10px;
+  background: #c52852;
+  padding: 4px 6px;
+  font-size: 18px;
+  color: #ffffff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  display: block;
+  margin: 0 0 2px 5px;
+}
+.t-d-foto .status-produkt .akce {
+  position: absolute;
+  right: -10px;
+  top: 40px;
+  background: #c52852;
+  padding: 4px 6px;
+  font-size: 18px;
+  color: #ffffff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  display: block;
+  margin: 0 0 2px 5px;
+}
+.t-d-foto .status-produkt .sleva {
+  position: absolute;
+  right: -10px;
+  top: 70px;
+  background: #c52852;
+  padding: 4px 6px;
+  font-size: 18px;
+  color: #ffffff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  display: block;
+  margin: 0 0 2px 5px;
+}
+.t-d-foto .status-produkt .old-detail {
+  display: block;
+  position: absolute;
+  right: 2px;
+  bottom: 60px;
+  width: 60px;
+  height: 50px;
+  padding: 10px 0 0 0;
+  background: transparent url("../styles/images/cena-old_bg.png") no-repeat center;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Times New Roman", Arial, Helvetica, sans-serif;
+  text-align: center;
+  vertical-align: middle;
+  z-index: 1;
+  text-decoration: line-through;
+}
+.t-d-foto .status-produkt .old-detail strong {
+  display: block;
+  font-weight: regular;
+  font-size: 14px;
+}
+.t-d-foto .status-produkt .new-detail {
+  display: block;
+  position: absolute;
+  right: 10px;
+  bottom: 0px;
+  width: 80px;
+  height: 72px;
+  padding: 10px 0 0 0;
+  background: transparent url("../styles/images/cena-new_bg.png") no-repeat center;
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: bold;
+  font-family: "Times New Roman", Arial, Helvetica, sans-serif;
+  text-align: center;
+  vertical-align: middle;
+  z-index: 2;
+}
+.t-d-foto .status-produkt .new-detail strong {
+  display: block;
+  font-weight: regular;
+  font-size: 15px;
+}
+.t-d-foto .status-produkt .procenta-detail {
+  display: block;
+  position: absolute;
+  right: 58px;
+  bottom: 55px;
+  width: 61px;
+  height: 61px;
+  background: transparent url("../styles/images/procenta_bg.png") no-repeat center;
+  font-family: "MS Trebuchet", Arial, Helvetica, sans-serif;
+  text-align: center;
+  color: #555555;
+  font-size: 22px;
+  font-weight: bold;
+  z-index: 0;
+  line-height: 60px;
+  font-weight: bold;
+}
+.t-d-foto .status-produkt .procenta-detail strong {
+  font-size: 17px;
+  font-weight: normal;
+}
+.t-d-para {
+  vertical-align: top;
+}
+.tab-detail-V {
+  margin: 0 0 0 15px;
+  background: none;
+  padding: 10px 10px 15px 10px;
+}
+.tab-detail-V table {
+  width: 340px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  vertical-align: middle;
+  line-height: 20px;
+  font-size: 16px;
+}
+.tab-detail-V table .atribut {
+  padding: 4px 0 4px 10px;
+  border-bottom: 1px dashed #a6a181;
+}
+.tab-detail-V table .hodnota {
+  padding: 4px 0 4px 10px;
+  border-bottom: 1px dashed #a6a181;
+}
+.detail-popis {
+  display: block;
+  padding: 15px;
+  margin: 15px 0 0 0;
+  line-height: 20px;
+  background: #cec9a9;
+}
+.detail-popis p {
+  padding: 10px 0 0 0;
+  text-align: justify;
+  font-size: 14px;
+}
+.detail-popis p:first-child {
+  padding: 0;
+}
+.detail-popis p:first-last {
+  padding: 0;
+}
+.detail-popis h2 {
+  font-size: 15px;
+}

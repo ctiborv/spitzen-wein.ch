@@ -1,0 +1,1 @@
+<div class="info-text2">Artikel <b><text eid="url" /></b>  ist nicht mehr vorhanden.</div>
