@@ -169,27 +169,10 @@ App_Data/*.ldf
 #############
 ## Projekt files
 #############
-UserFiles/download/*.*
-UserFiles/download/nahledy/*.*
-UserFiles/slider/*.*
-UserFiles/logo/*.*
-UserFiles/video/*.*
-UserFiles/fotogalerie/middle/*.*
-UserFiles/fotogalerie/small/*.*
-UserFiles/fotogalerie/original/*.*
-UserFiles/products/middle/*.*
-UserFiles/products/original/*.*
-UserFiles/products/small/*.*
-UserFiles/stitky/*.*
-UserFiles/uvodni-strana/*.*
-UserFiles/bocni-panel/*.*
-UserFiles/Image/*.*
-feed/*.xml
-admin/shop/xml_import/pelikan/_tmp/*
-admin/shop/xml_import/rcking/_tmp/*
-images_RO/schema/pozadi.jpg
-images_RR/schema/*
-
+userfiles/*
+documents/eshop/*
+documents/eshop/catalog/*
+documents/eshop/collection/*
 
 # soubor pro zachování stromové struktury
 !adr.adr
